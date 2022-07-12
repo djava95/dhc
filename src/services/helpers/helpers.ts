@@ -1,5 +1,4 @@
 
-export const add = (a :number, b: number) => {
-  return a+b;
+export const capitalize = (word : string) => {
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
-

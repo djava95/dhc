@@ -1,7 +1,7 @@
 export const navLinkNames = [
-  {linkName: 'News', active: false},
-  {linkName: 'Reports', active: false},
-  {linkName: 'Gallery', active: false},
-  {linkName: 'About', active: false},
-  {linkName: 'Contact us', active: false},
+  {linkName: 'news', active: false},
+  {linkName: 'reports', active: false},
+  {linkName: 'gallery', active: false},
+  {linkName: 'about', active: false},
+  {linkName: 'contact us', active: false},
 ];
