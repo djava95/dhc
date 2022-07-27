@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import NavLink from "./NavLink";
 import { navLinkNames } from "../constants/constants";
@@ -33,22 +32,8 @@ const LanguageMenu = styled.div`
 `
 
 const Header = () => {
-	const [linksData, setLinksData] = useState(navLinkNames);
   const location = useLocation();
-
-  const toggleActive = (link : string) => {  
-    const updatedLinksData = linksData.map(
-      item => ({
-        linkName : item.linkName, 
-        active :  item.linkName === link? true :false
-      })
-    );
-    setLinksData(updatedLinksData)
-  };
-
-  useEffect(()=> {
-    toggleActive(location.pathname.replace('%20',' ').slice(1));
-  }, [location.pathname])
+  const currentLocation = location.pathname.replace('%20',' ').split('/')[1];
   
 	return (
 		<MainContainer>
@@ -59,8 +44,8 @@ const Header = () => {
           </Link>    
         </LogoContainer>
         <NavLinksContainer>
-          {linksData.map((item) => (
-            <NavLink key={item.linkName} handleToggle={toggleActive} active={item.active} linkName={item.linkName} /> 
+          {navLinkNames.map((item) => (
+            <NavLink key={item.linkName} active= {currentLocation === item.linkName} linkName={item.linkName} /> 
           ))}
         </NavLinksContainer>
         <LanguageMenu></LanguageMenu>

@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { capitalize } from "../services/helpers/helpers";
-import { useParams, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 interface PropsI {
   linkName : string,
   active : boolean,
-  handleToggle: (linkName : string)=> void
 }
 
 const LinkContainer = styled.div.attrs((props: {active: boolean}) => props)`
@@ -27,10 +25,10 @@ const CustomLink = styled(Link)`
   }
 `
 
-const NavLink = ({linkName, active, handleToggle}: PropsI) => {
+const NavLink = ({linkName, active}: PropsI) => {
   
   return (
-    <LinkContainer active = {active} onClick={() => handleToggle(linkName)}>
+    <LinkContainer active = {active}>
       <CustomLink to={`/${linkName}`}> {capitalize(linkName)} </CustomLink>
     </LinkContainer>
   )
